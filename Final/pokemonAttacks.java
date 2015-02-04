@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 	public class pokemonAttacks
 	{
+	private static String playerPokemon;
+	private static String opponentPokemon;
 	public static int opponentMove;
 	public static int MultresHealth = 200;
 	public static int ArticunoHealth = 200;
@@ -39,12 +41,21 @@ import java.util.Scanner;
 	public static void attacks()
 		{
 		pokemon.add(new pokemonAttacks (120, "Multres", "Flamethrower", 25, "Fly", 6, "Tackle", 9, "Whirlwind", 14));
-		pokemon.add(new pokemonAttacks (120, "Charizard", "Ice Beam", 14, "Tackle", 6, "Solar Beam", 25, "Ember", 9));
+		pokemon.add(new pokemonAttacks (120, "Articuno", "Ice Beam", 14, "Tackle", 6, "Solar Beam", 25, "Ember", 9));
 		System.out.println("Which pokemon do you choose(pick number next to pokemon)");
-		System.out.println("1.Venesaur 2.Charizard");
+		System.out.println("1.Multres 2.Articuno");
 		Scanner userInput = new Scanner(System.in);
 		int choice = userInput.nextInt();
-		
+		if choice.equals (1))
+			{
+			playerPokemon=Multres;
+			opponentPokemon=Articuno;
+			}
+			else if (choice.equals (2))
+			{
+			playerPokemon="Articuno";
+			opponentPokemon="Multres";
+			}
 		if (choice == 1)
 			{
 			pokemonAttacks player = new pokemonAttacks (120, "Multres", "Flamethrower", 25, "Fly", 6, "Tackle", 9, "Whirlwind", 14);
@@ -79,29 +90,33 @@ import java.util.Scanner;
 						}
 			}
 			}
-		opponentMove = (int)(Math.random() * 4) + 0 ;	
+		opponentMove = (int)(Math.random() * 3) + 0 ;	
 		
 		switch(opponentMove)
 		{
 		case 1:
 				{
-				System.out.println("Your opponent's move is " + opponent.Attack1Name() + " and does "+ opponent.attack1Damage() + " damage and you have " + player.setHealth(health - opponent.Attack1Damage() + " health left"));
+				player.setHealth(health - opponent.Attack1Damage());
+				System.out.println("Your opponent's move is " + opponent.Attack1Name() + " and does "+ opponent.Attack1Damage() + " damage and you have " + player.getHealth() + " health left");
 				break;
 				}
 		case 2:
 				{
-					System.out.println("Your opponent's move is " + o.attack2Name() + " and does "+ o.attack2Damage() + " damage and you have " + p.setHealth(health - o.attack2Damage() + " health left"));							
-					break;
+				player.setHealth(health - opponent.Attack2Damage());
+				System.out.println("Your opponent's move is " + opponent.Attack2Name() + " and does "+ opponent.Attack2Damage() + " damage and you have " + player.getHealth() + " health left");							
+				break;
 				}
 		case 3:
 				{
-					System.out.println("Your opponent's move is " + o.attack3Name() + " and does "+ o.attack3Damage() + " damage and you have " + p.setHealth(health - o.attack3Damage() + " health left"));
-					break;
+				player.setHealth(health - opponent.Attack3Damage());
+				System.out.println("Your opponent's move is " + opponent.Attack3Name() + " and does "+ opponent.Attack3Damage() + " damage and you have " + player.getHealth() + " health left");
+				break;
 				}
 		case 4:
 				{
-					System.out.println("Your opponent's move is " + o.attack4Name() + " and does "+ o.attack4Damage() + " damage and you have " + p.setHealth(health - o.attack4Damage() + " health left"));
-					break;
+				player.setHealth(health - opponent.Attack4Damage()
+				System.out.println("Your opponent's move is " + opponent.Attack4Name() + " and does "+ opponent.Attack4Damage() + " damage and you have " + player.getHealth() + " health left"));
+				break;
 				}
 		}
 		}

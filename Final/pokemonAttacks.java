@@ -57,7 +57,7 @@ import java.util.Scanner;
 		pokemonAttacks player = new pokemonAttacks (200, playerPokemon, "Flamethrower", 25, "Fly", 6, "Tackle", 9, "Whirlwind", 14);
 		pokemonAttacks opponent = new pokemonAttacks (200, opponentPokemon, "Ice Beam", 14, "Tackle", 6, "Solar Beam", 25, "Ember", 9);
 		System.out.println("You choose " + player.getName() + " and you will battle " + opponent.getName());
-		for(int i=0;i<10;i++)
+		while(isStillPlaying)
 			{
 			if (choice == 1)
 				{

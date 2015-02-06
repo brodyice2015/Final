@@ -3,17 +3,10 @@ import java.util.Scanner;
 
 	public class pokemonAttacks
 	{
+	private static boolean isStillPlaying=true;
 	private static String playerPokemon;
 	private static String opponentPokemon;
 	public static int opponentMove;
-	public static int MultresHealth = 200;
-	public static int ArticunoHealth = 200;
-	public static int newMultresHealth;
-	public static int newArticunoHealth;
-	static String[] MultresMoveNames = {"Flamethrower", "Fly", "Tackle", "Whirlwind"};
-	static String[] ArticunoMoveNames = {"Ice Beam", "Tackle", "Solar Beam", "Frostbite"};
-	static int[] MultresMoves = {25,6,9,14};
-	static int[] ArticunoMoves = {14,6,25,9};
 	private String name;
 	private static int health;
 	private String attack1Name;
@@ -75,29 +68,29 @@ import java.util.Scanner;
 					case 1:
 							{
 							opponent.setHealth(opponent.getHealth() - player.getAttack1Damage());
-							System.out.println("Your move is " + player.getAttack1Name() + " and does "+ player.getAttack1Damage() + " damage and your opponent has " + opponent.getHealth() + " health left");
+							System.out.println("Your move is " + player.getAttack1Name() + " and does "+ player.getAttack1Damage() + " damage and your opponent has " + opponent.getHealth() + " health left.");
 							break;
 							}
 					case 2:
 							{
 							opponent.setHealth(opponent.getHealth() - player.getAttack2Damage());
-							System.out.println("Your move is " + player.getAttack2Name() + " and does "+ player.getAttack2Damage() + " damage and your opponent has " + opponent.getHealth() + " health left");
+							System.out.println("Your move is " + player.getAttack2Name() + " and does "+ player.getAttack2Damage() + " damage and your opponent has " + opponent.getHealth() + " health left.");
 							break;
 							}
 					case 3:
 							{
 							opponent.setHealth(opponent.getHealth() - player.getAttack3Damage());
-							System.out.println("Your move is " + player.getAttack3Name() + " and does "+ player.getAttack3Damage() + " damage and your opponent has " + opponent.getHealth() + " health left");
+							System.out.println("Your move is " + player.getAttack3Name() + " and does "+ player.getAttack3Damage() + " damage and your opponent has " + opponent.getHealth() + " health left.");
 							break;
 							}
 					case 4:
 							{
 							opponent.setHealth(opponent.getHealth() - player.getAttack3Damage());
-							System.out.println("Your move is " + player.getAttack4Name() + " and does "+ player.getAttack4Damage() + " damage and your opponent has " + opponent.getHealth() + " health left");
+							System.out.println("Your move is " + player.getAttack4Name() + " and does "+ player.getAttack4Damage() + " damage and your opponent has " + opponent.getHealth() + " health left.");
 							break;	
 							}
 				}
-			opponentMove = (int)(Math.random() * 1) + 1 ;	
+			opponentMove = (int)(Math.random() * 4) + 1 ;	
 			
 			switch(opponentMove)
 				{
@@ -125,6 +118,11 @@ import java.util.Scanner;
 						System.out.println("Your opponent's move is " + opponent.getAttack4Name() + " and does "+ opponent.getAttack4Damage() + " damage and you have " + player.getHealth() + " health left");
 						break;
 						}
+				}
+			if (opponent.getHealth() <= 0 || player.getHealth() <= 0)
+				{
+				System.out.println("Game Over!!");
+				isStillPlaying = false;
 				}
 			}
 			else if(choice==2)
@@ -160,7 +158,6 @@ import java.util.Scanner;
 					}
 					}
 				opponentMove = (int)(Math.random() * 4) + 1 ;	
-				
 				switch(opponentMove)
 					{
 					case 1:
@@ -188,8 +185,12 @@ import java.util.Scanner;
 							break;
 							}
 					}
+				}	if (opponent.getHealth() <= 0 || player.getHealth() <= 0)
+					{
+					System.out.println("Game Over!!");
+					isStillPlaying = false;
+					}
 				}
-			}
 	public String getName()
 		{
 		return name;
@@ -274,5 +275,4 @@ import java.util.Scanner;
 		{
 			
 		}
-
 	}
